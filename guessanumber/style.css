@@ -1,0 +1,82 @@
+@layer components {
+    div {
+       inline-size: min(900px,100%);
+       margin: 0 auto;
+       margin-top: 200px;
+       text-align: center;
+    }
+    h1, h4, p, input, button{
+    font-family: "Roboto Slab";
+    }
+    body {
+        background-color: rgba(255, 255, 0, 0.192);
+    }
+    h1 {
+        font-size: 3rem;
+        color: rgb(87, 69, 8);
+    }
+    h4{
+            color: rgb(101, 78, 20);
+            font-size: 1.4rem;
+        }
+    
+        p {
+            margin-top: 40px;
+            color: black ;
+            font-size: 1.2rem;
+        }
+        input, button {
+            all: unset;
+        }
+        input {
+            padding: 12px 35px;
+            border-radius: 10px;
+            background-color: white;
+            border: 1px solid black; 
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #794b0c;
+            border-radius: 10px;
+            font-style: 500;
+            color: white;
+            cursor: pointer; 
+
+        }
+        button:hover {
+                background-color: rgb(169, 137, 88);
+                color: black;
+              
+        }
+       input {
+        font-family: "Roboto Slab";
+       }
+       .fade-in {
+        display: block;
+        opacity: 1;
+        animation: fadeIn 1s ease infinite, rainbow 2s linear infinite;
+        color: rgb(8, 159, 43);
+        font-size: 1.5rem;
+    }
+
+    /* Definer fade-in animation */
+    @keyframes fadeIn {
+        0%, 100% {
+            transform: translateY(0); /* Start og slut ved udgangspunktet */
+        }
+        50% {
+            transform: translateY(-20px); /* Flyt op ved midten af animationen */
+        }
+    }
+    @keyframes rainbow {
+        0% { color: red; }
+        14% { color: orange; }
+        28% { color: yellow; }
+        42% { color: green; }
+        57% { color: blue; }
+        71% { color: indigo; }
+        85% { color: violet; }
+        100% { color: red; } /* Tilbage til start */
+    }
+
+}
