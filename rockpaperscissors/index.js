@@ -1,3 +1,5 @@
+"use strict";
+
 const options = ['rock','paper','scissors'];
 
 const player1 = document.getElementById('player1');
