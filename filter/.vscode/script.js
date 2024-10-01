@@ -1,3 +1,5 @@
+"use strict";
+
 const vehicles = [
   { type: "Bus", fuel: "Diesel", passengers: 45, stops: ["Nørrebrogade", "Elmegade"] },
   { type: "Bil", fuel: "Benzin", passengers: 4, ownedBy: "Klaus" },
@@ -10,19 +12,51 @@ const vehicles = [
   { type: "Knallert", fuel: "Benzin", passengers: 1, ownedBy: "Jonas" },
   { type: "Løbehjul", passengers: 1, isElectric: true },
 ];
-const tbodyPointer = document.querySelector("tbody");
+
+
+let tbodyPointer;
+
+document.addEventListener("DOMContentLoaded", function () {
+tbodyPointer = document.querySelector("tbody");
 showTheseVehicles(vehicles);
+});
+
 
 function showTheseVehicles(arr) {
+tbodyPointer.innerHTML = "";
   arr.forEach((each) => {
     tbodyPointer.innerHTML += `<tr>
-  <td>${each.type}</td>
-  <td>${each.fuel}</td>
-  <td>${each.passengers}</td> 
-  <td>${each.stops}</td>
-  <td>${each.ownedBy}</td>
-  <td>${each.isElectric}</td>
-  <td>${each.isTandem}</td>
-</tr>`;
+      <td>${each.type || "Ukendt"}</td>
+      <td>${each.fuel || "Ukendt"}</td>
+      <td>${each.passengers >= 0 ? each.passengers : "Ukendt"}</td>
+      <td>${each.stops ? each.stops.join(", ") : "Ingen stop"}</td>
+      <td>${each.ownedBy || "Ukendt"}</td>
+      <td>${each.isElectric ? "Ja" : "Nej"}</td>
+      <td>${each.isTandem ? "Ja" : "Nej"}</td>
+    </tr>`;
   });
+}
+
+function filterElectric() {
+  console.log("Filtrerer el-drevne fartøjer");
+  const filtered = vehicles.filter(v => v.isElectric);
+  showTheseVehicles(filtered);
+}
+
+function filterSeats(){
+  console.log("Filtrerer fartøjer med mere end 2 sæder");
+  const filtered = vehicles.filter(v => v.passengers > 2);
+  showTheseVehicles(filtered);
+}
+
+function filterElOwnByJonas() {
+  console.log("Filtrerer el-drevne fartøjer ejet af Jonas");
+  const filtered = vehicles.filter(v => v.isElectric && v.ownedBy === "Jonas");
+  showTheseVehicles(filtered);
+}
+
+function filterRugbrod() {
+  console.log("Filtrerer rugbrøds-drevne fartøjer med mere end én passager");
+  const filtered = vehicles.filter(v => v.fuel === "Rugbrød" && v.passengers > 1);
+  showTheseVehicles(filtered);
 }
