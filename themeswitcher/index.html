@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+</head>
+
+<style>
+    [data-filter=dark] {
+        --header-colour-dk: rgb(85, 32, 32);
+        --footer-color-dk:rgb(126, 76, 76);
+        --main-color-dk:rgba(85, 32, 32, 0.672);
+        --text-color-dk:white;
+ 
+    }
+    header[data-filter=dark] {
+        background-color: var(--header-colour-dk);
+        color: var(--text-color-hw);
+    }
+    body[data-filter=dark] {
+    background-color: var(--main-color-dk);
+    color: var(--text-color-dk);
+    }
+    footer[data-filter=dark] {
+    background-color: var(--footer-color-dk);
+    color:var(--text-color-dk);
+    }
+
+    [data-filter=light] {
+        --header-colour-lg: rgb(217, 207, 207);
+        --footer-color-lg:rgb(165, 148, 148);
+        --main-color-lg:rgba(213, 179, 179, 0.672);
+        --text-color-lg:black;
+        background-color: var(--header-colour-lg);
+        color:var(--text-color-lg);
+    }
+    header[data-filter=light] {
+        background-color: var(--header-colour-lg);
+        color: var(--text-color-lg);
+    }
+    body[data-filter=light] {
+    background-color: var(--main-color-lg);
+    color: var(--text-color-lg);
+    }
+    footer[data-filter=light] {
+    background-color: var(--footer-color-lg);
+    color: var(--text-color-lg);
+    }
+    [data-filter=hawaii] {
+        --header-colour-hw: rgb(8, 12, 251);
+        --footer-color-hw:rgb(251, 4, 4);
+        --main-color-hw:rgb(243, 255, 5);
+        --text-color-hw:rgb(247, 109, 132);
+        background-color: var(--header-colour-hw);
+        color: var(--text-color-hw);
+
+    }
+    header[data-filter=hawaii] {
+        background-color: var(--header-colour-hw);
+        color: var(--text-color-hw);
+    }
+    body[data-filter=hawaii] {
+    background-color: var(--main-color-hw);
+    color: var(--text-color-hw);
+    }
+    footer[data-filter=hawaii] {
+    background-color: var(--footer-color-hw);
+    color: var(--text-color-hw);
+    border-color: black;
+    }
+
+</style>
+<body data-filter="dark">
+    <header data-filter="dark" >
+        <h1 >Filter funktion</h1>
+        <label for="theme-switcher">Choose a theme</label>
+
+        <select name="theme" id="theme-switcher">
+            <option value="">--Please choose an option--</option>
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="hawaii">Hawaii</option>
+        </select>
+    </header>
+    <main data-filter="dark"></main>
+    <footer data-filter="dark">
+        <h2>Lavet af Maria</h2>
+    </footer>
+</body>
+<script src="java.js"></script>
+</html>
